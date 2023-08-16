@@ -11,12 +11,12 @@ export default class StringUtils {
      * @param rep1
      * @param rep2
      */
-    replace(str: string, rep1: [string], rep2: [string]): string {
+    replace(str: string, rep1: Array<string>, rep2: Array<string>): string {
         if (rep2.length > 1 && rep1.length === rep2.length) {
             for (let i = 0; i < rep2.length; i++) {
                 str = str.replace(rep1[i], rep2[i])
             }
-        } else if (rep1.length === 1) {
+        } else if (rep2.length === 1) {
             for (let i = 0; i < rep1.length; i++) {
                 str = str.replace(rep1[i], rep2[0])
             }
@@ -55,7 +55,7 @@ export default class StringUtils {
                 result = str.substring(1);
                 break;
             case 3:
-                result = str.substring(0, str.length);
+                result = str.substring(0, str.length-1);
                 break;
             case 4:
                 for (let i = 0; i < str.length; i++) {

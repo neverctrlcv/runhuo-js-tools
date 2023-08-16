@@ -18,7 +18,7 @@ var StringUtils = /** @class */ (function () {
                 str = str.replace(rep1[i], rep2[i]);
             }
         }
-        else if (rep1.length === 1) {
+        else if (rep2.length === 1) {
             for (var i = 0; i < rep1.length; i++) {
                 str = str.replace(rep1[i], rep2[0]);
             }
@@ -54,7 +54,7 @@ var StringUtils = /** @class */ (function () {
                 result = str.substring(1);
                 break;
             case 3:
-                result = str.substring(0, str.length);
+                result = str.substring(0, str.length - 1);
                 break;
             case 4:
                 for (var i = 0; i < str.length; i++) {

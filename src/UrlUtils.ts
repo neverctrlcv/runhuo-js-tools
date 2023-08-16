@@ -10,7 +10,7 @@ export default class UrlUtils {
      * 解析url中的参数
      * @param url
      */
-    getUrlParam(url: string): obj {
+    getUrlParams(url: string): obj {
         let result: obj = {};
         let params = url.split("?")[1].split("&");
         for (let i = 0; i < params.length; i++) {

@@ -8,7 +8,7 @@
     "strict": true,
     "skipLibCheck": true,
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": true
     /* Projects */
     // "incremental": true,                              /* Save .tsbuildinfo files to allow for incremental compilation of projects. */
     // "composite": true,                                /* Enable constraints that allow a TypeScript project to be used with project references. */
@@ -91,5 +91,12 @@
     // "allowUnusedLabels": true,                        /* Disable error reporting for unused labels. */
     // "allowUnreachableCode": true,                     /* Disable error reporting for unreachable code. */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
-  }
+  },
+  "exclude": [
+    "./test/**/*"
+  ],
+  "include": [
+    "index.ts",
+    "./src/**/*"
+  ]
 }

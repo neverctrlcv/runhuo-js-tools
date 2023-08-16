@@ -1,4 +1,4 @@
-export default class NumberUtils{
+export default class NumberUtils {
     constructor() {
     }
 
