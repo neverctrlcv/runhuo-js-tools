@@ -1,0 +1,19 @@
+{
+  "name": "runhuo-js-tools",
+  "version": "1.1.1",
+  "description": "润火的js工具库",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "author": "润火",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ]
+}
