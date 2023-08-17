@@ -20,4 +20,40 @@ export default class UrlUtils {
         return result;
     }
 
+    /**
+     * 获取url中的主机
+     * @param url
+     */
+    getHost(url: string): string {
+        const temp = url.split("//");
+        const firstSlash = temp[1].indexOf("/");
+        const host = temp[1].substring(0, firstSlash);
+        return `${temp[0]}//${host}`;
+    }
+
+    /**
+     * 获取url中的端口
+     */
+    getPort(url: string): string {
+        const protocol = url.substring(0, url.indexOf("//"));
+        const temp = url.split("//")[1];
+        let index = temp.indexOf(':') + 1;
+        let flag = true;
+        let port = "";
+        console.log(temp,index);
+        while (flag) {
+            const num = Number(temp.charAt(index));
+            if (!isNaN(num) && num >= 0 || num <= 9) {
+                port += num;
+                index++;
+            } else {
+                flag = false;
+            }
+        }
+        if (port === "") {
+            port = protocol === "https:" ? "443" : "80";
+        }
+        return port;
+    }
+
 }

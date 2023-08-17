@@ -55,7 +55,7 @@ export default class StringUtils {
                 result = str.substring(1);
                 break;
             case 3:
-                result = str.substring(0, str.length-1);
+                result = str.substring(0, str.length - 1);
                 break;
             case 4:
                 for (let i = 0; i < str.length; i++) {
@@ -69,6 +69,25 @@ export default class StringUtils {
                 throw Error("Error in parameter passed by method StringUtils. trim");
         }
         return result;
+    }
+
+    /**
+     * 判断两个字符串是否相等
+     * @param str1
+     * @param str2
+     */
+    equals(str1: string, str2: string): boolean {
+        if (str1.length !== str2.length) {
+            return false;
+        }
+        for (let i = 0; i < str1.length; i++) {
+            const ch1 = str1.charAt(i);
+            const ch2 = str2.charAt(i);
+            if (ch2 !== ch1) {
+                return false
+            }
+        }
+        return true;
     }
 
 }

@@ -7,6 +7,8 @@ export default class ArrayUtils {
      * @param arr
      */
     sum(arr: Array<string> | Array<number> | Array<number | string>): number {
+        if (arr.length===0)
+            return 0;
         let result: number = 0;
         for (let i = 0; i < arr.length; i++) {
             let temp = arr[i];

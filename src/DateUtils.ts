@@ -47,5 +47,22 @@ export default class DateUtils {
         }
         return result;
     }
+
+    /**
+     * 计算两个日期的时间差
+     * @param start
+     * @param end
+     */
+    dateDiff(start: Date, end: Date): Array<number> {
+        let diff = Math.abs(start.getTime() - end.getTime());
+        const dayGap = Math.floor(diff / (1000 * 60 * 60 * 24));
+        diff = diff % (1000 * 60 * 60 * 24);
+        const hourGap = Math.floor(diff / (1000 * 60 * 60));
+        diff = diff % (1000 * 60 * 60);
+        const minutes = Math.floor(diff / (1000 * 60));
+        diff = diff % (1000 * 60);
+        const seconds = Math.floor(diff / 1000);
+        return [dayGap, hourGap, minutes, seconds, diff % 1000];
+    }
 }
 

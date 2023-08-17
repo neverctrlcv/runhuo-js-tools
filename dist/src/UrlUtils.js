@@ -16,6 +16,16 @@ var UrlUtils = /** @class */ (function () {
         }
         return result;
     };
+    /**
+     * 获取url中的主机
+     * @param url
+     */
+    UrlUtils.prototype.getHost = function (url) {
+        var temp = url.split("//");
+        var firstSlash = temp[1].indexOf("/");
+        var host = temp[1].substring(0, firstSlash);
+        return "".concat(temp[0], "//").concat(host);
+    };
     return UrlUtils;
 }());
 exports.default = UrlUtils;

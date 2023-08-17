@@ -48,6 +48,22 @@ var DateUtils = /** @class */ (function () {
         }
         return result;
     };
+    /**
+     * 计算两个日期的时间差
+     * @param start
+     * @param end
+     */
+    DateUtils.prototype.dateDiff = function (start, end) {
+        var diff = Math.abs(start.getTime() - end.getTime());
+        var dayGap = Math.floor(diff / (1000 * 60 * 60 * 24));
+        diff = diff % (1000 * 60 * 60 * 24);
+        var hourGap = Math.floor(diff / (1000 * 60 * 60));
+        diff = diff % (1000 * 60 * 60);
+        var minutes = Math.floor(diff / (1000 * 60));
+        diff = diff % (1000 * 60);
+        var seconds = Math.floor(diff / 1000);
+        return [dayGap, hourGap, minutes, seconds, diff % 1000];
+    };
     return DateUtils;
 }());
 exports.default = DateUtils;
