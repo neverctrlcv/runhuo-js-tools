@@ -13,11 +13,11 @@ const dateUtils = new DateUtils();
 // console.log(dateUtils.dateFormat("a HH:mm:ss", new Date()));
 // console.log(dateUtils.dateFormat("a HH:mm:ss C", 1692192621932));
 
-// const a=new Date();
-// let b:Date;
-// setTimeout(()=>{
-//    b=new Date(1692003555367);
-//    console.log(a.getTime());
-//     console.log(b.getTime());
-//     console.log(dateUtils.dateDiff(a,b));
-// },3850);
+const a=new Date();
+let b:Date;
+setTimeout(()=>{
+   b=new Date();
+   console.log(a.getTime());
+    console.log(b.getTime());
+    console.log(dateUtils.dateDiff(a,b));
+},3850);

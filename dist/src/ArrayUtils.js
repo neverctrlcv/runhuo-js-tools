@@ -8,6 +8,8 @@ var ArrayUtils = /** @class */ (function () {
      * @param arr
      */
     ArrayUtils.prototype.sum = function (arr) {
+        if (arr.length === 0)
+            return 0;
         var result = 0;
         for (var i = 0; i < arr.length; i++) {
             var temp = arr[i];

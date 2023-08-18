@@ -18,12 +18,14 @@
 | toUpperCase| 将字符串字母全部转成大写 | args: string | args：需要操作的字符串； | string |
 | toLowerCase |将字符串字母全部转成小写| args: string | args：需要操作的字符串； | string |
 | trim| 去除字符串的空格 | str: string , type: number | str：需要操作的字符串；<br/>type：操作的方式，取值范围为1、2、3、4；<br/>**1**：表示去除字符串开头和结尾空格；<br/>**2**：去除字符串开头的空格；<br/>**3**：去除字符串结尾的空格；<br/>**4**：去除字符串中所有的空格； | string |
+| equals | 判断两个字符串是否相等 | str1: string, str2: string | str1: 字符串1；<br/> str2: 字符串2 | boolean |
 
 ### UrlUtils
 
 | API         | 方法说明 | 参数及类型  | 参数说明                 | 返回类型 |
 | ------------ |---| ----------- | ------------------------ | -------- |
 | getUrlParams |解析url参数| url: string | url：需要解析参数的url； | Object   |
+| getPort |获取url中的端口号| url: string | url：需要解析端口号的url； | string |
 
 ### ArrayUtils
 
@@ -31,4 +33,14 @@
 | ----------|-- | ----------------------------------------------- | ------------------------------------------------------------ | ---------------- |
 | sum        |数组求和| arr: Array\<string> \| Array\<number> \| Array<number\|string> | arr：需要求和的数组，arr只能是number类型、string类型、string与number混合类型中的其中一个； | number |
 | getMaximum |获取数组中的最值| arr: Array\<number> , type: boolean | arr：需要获取最值的数组；<br/>type：决定获取哪种最值；<br/>**true**：最大值<br/>**false**：最小值 | number           |
+
+### MathUtils
+
+| API             | 方法说明               | 参数及类型                      | 参数说明                       | 返回类型 |
+| --------------- | ---------------------- | ------------------------------- | ------------------------------ | -------- |
+| sumOfArithmetic | 等差数列求和           | arr: Array\<number>             | arr：等差数列的数组            | number   |
+| sumOfGeometric  | 等比数列求和           | arr: Array\<number>             | arr：等比数列的数组            | number   |
+| triangleArea    | 已知三角形三条边求面积 | a: number, b: number, c: number | a，b，c为三角形的三条边        | number   |
+| gcd             | 求最大公约数           | a: number, b: number            | a，b为参数，求两者的最大公约数 | number   |
+| lcm             | 求最小公倍数           | a: number, b: number            | a，b为参数，求两者的最小公倍数 | number   |
 

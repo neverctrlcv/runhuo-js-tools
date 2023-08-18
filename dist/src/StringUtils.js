@@ -69,6 +69,24 @@ var StringUtils = /** @class */ (function () {
         }
         return result;
     };
+    /**
+     * 判断两个字符串是否相等
+     * @param str1
+     * @param str2
+     */
+    StringUtils.prototype.equals = function (str1, str2) {
+        if (str1.length !== str2.length) {
+            return false;
+        }
+        for (var i = 0; i < str1.length; i++) {
+            var ch1 = str1.charAt(i);
+            var ch2 = str2.charAt(i);
+            if (ch2 !== ch1) {
+                return false;
+            }
+        }
+        return true;
+    };
     return StringUtils;
 }());
 exports.default = StringUtils;
