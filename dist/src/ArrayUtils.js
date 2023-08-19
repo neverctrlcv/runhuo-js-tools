@@ -52,6 +52,42 @@ var ArrayUtils = /** @class */ (function () {
         }
         return maximum;
     };
+    /**
+     * 判断数组中是否含有某个元素
+     * @param arr
+     * @param value
+     */
+    ArrayUtils.prototype.contains = function (arr, value) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] === value) {
+                return i;
+            }
+        }
+        return -1;
+    };
+    /**
+     * 截取数组
+     * @param arr
+     * @param start
+     * @param end
+     */
+    ArrayUtils.prototype.subArray = function (arr, start, end) {
+        end = end ? end : arr.length - 1;
+        if (end > arr.length - 1 || start < 0) {
+            throw Error("Array subscript out of bounds");
+        }
+        var arr1 = [];
+        for (var i = start; i <= end; i++) {
+            arr1.push(arr[i]);
+        }
+        return arr1;
+    };
+    ArrayUtils.prototype.isEmpty = function (arr) {
+        if (!arr) {
+            return true;
+        }
+        return arr.length === 0;
+    };
     return ArrayUtils;
 }());
 exports.default = ArrayUtils;

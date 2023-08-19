@@ -10,5 +10,12 @@ const stringUtils=new StringUtils();
 // console.log(stringUtils.trim(" asjk jsalk ",2));
 // console.log(stringUtils.trim(" asjk jsalk ",3));
 // console.log(stringUtils.trim(" asjk jsalk ",4));
+//
+// console.log(stringUtils.isEmpty(" "))
+// console.log(stringUtils.isEmpty(""))
+// console.log(stringUtils.isEmpty(" 1 "))
 
-console.log(stringUtils.equals("abc","acc"))
+//
+// console.log(stringUtils.capitalize("abns"));
+// console.log(stringUtils.capitalize("1abns"));
+// console.log(stringUtils.capitalize("Abns"));

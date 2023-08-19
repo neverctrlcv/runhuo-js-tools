@@ -90,4 +90,47 @@ export default class StringUtils {
         return true;
     }
 
+    /**
+     * 判断字符串是否为空（trim后判断）
+     * @param str
+     */
+    isBlank(str: string | null): boolean {
+        if (str === null || str.length === 0 && str === "")
+            return true;
+        const str1 = this.trim(str, 1);
+        return (str1.length === 0 && str1 === "");
+    }
+
+    /**
+     * 判断字符串是否为空（不trim后判断）
+     * @param str
+     */
+    isEmpty(str: string | null): boolean {
+        return (str === null || str.length === 0 && str === "");
+    }
+
+    /**
+     * 将字符串首字符进行大写
+     * @param str
+     */
+    capitalize(str: string): string {
+        if (str === "") {
+            return str;
+        }
+        const char = this.toUpperCase(str.charAt(0));
+        return char + str.substring(1);
+    }
+
+    /**
+     * 将字符串首字符进行小写
+     * @param str
+     */
+    uncapitalize(str: string): string {
+        if (str === "") {
+            return str;
+        }
+        const char = this.toLowerCase(str.charAt(0));
+        return char + str.substring(1);
+    }
+
 }

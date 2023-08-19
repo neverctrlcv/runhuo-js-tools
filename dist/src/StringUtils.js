@@ -87,6 +87,45 @@ var StringUtils = /** @class */ (function () {
         }
         return true;
     };
+    /**
+     * 判断字符串是否为空（trim后判断）
+     * @param str
+     */
+    StringUtils.prototype.isBlank = function (str) {
+        if (str === null || str.length === 0 && str === "")
+            return true;
+        var str1 = this.trim(str, 1);
+        return (str1.length === 0 && str1 === "");
+    };
+    /**
+     * 判断字符串是否为空（不trim后判断）
+     * @param str
+     */
+    StringUtils.prototype.isEmpty = function (str) {
+        return (str === null || str.length === 0 && str === "");
+    };
+    /**
+     * 将字符串首字符进行大写
+     * @param str
+     */
+    StringUtils.prototype.capitalize = function (str) {
+        if (str === "") {
+            return str;
+        }
+        var char = this.toUpperCase(str.charAt(0));
+        return char + str.substring(1);
+    };
+    /**
+     * 将字符串首字符进行小写
+     * @param str
+     */
+    StringUtils.prototype.uncapitalize = function (str) {
+        if (str === "") {
+            return str;
+        }
+        var char = this.toLowerCase(str.charAt(0));
+        return char + str.substring(1);
+    };
     return StringUtils;
 }());
 exports.default = StringUtils;

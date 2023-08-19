@@ -19,6 +19,10 @@
 | toLowerCase |将字符串字母全部转成小写| args: string | args：需要操作的字符串； | string |
 | trim| 去除字符串的空格 | str: string , type: number | str：需要操作的字符串；<br/>type：操作的方式，取值范围为1、2、3、4；<br/>**1**：表示去除字符串开头和结尾空格；<br/>**2**：去除字符串开头的空格；<br/>**3**：去除字符串结尾的空格；<br/>**4**：去除字符串中所有的空格； | string |
 | equals | 判断两个字符串是否相等 | str1: string, str2: string | str1: 字符串1；<br/> str2: 字符串2 | boolean |
+| isBlank | 判断字符串是否为空（trim后判断） | str: string\|null | str：需要判断的字符串 | boolean |
+| isEmpty | 判断字符串是否为空（不trim后判断） | str: string\|null | str：需要判断的字符串 | boolean |
+| capitalize | 字符串首字母大写 | str: string | str：需要操作的字符串 | string |
+| uncapitalize | 字符串首字母小写 | str: string | str：需要操作的字符串 | string |
 
 ### UrlUtils
 
@@ -33,6 +37,9 @@
 | ----------|-- | ----------------------------------------------- | ------------------------------------------------------------ | ---------------- |
 | sum        |数组求和| arr: Array\<string> \| Array\<number> \| Array<number\|string> | arr：需要求和的数组，arr只能是number类型、string类型、string与number混合类型中的其中一个； | number |
 | getMaximum |获取数组中的最值| arr: Array\<number> , type: boolean | arr：需要获取最值的数组；<br/>type：决定获取哪种最值；<br/>**true**：最大值<br/>**false**：最小值 | number           |
+| contains |判断数组是否含有某个元素；**注：查找到返回下标，否则返回-1**| arr: Array\<any>, value: any | arr: 需要遍历的数组;<br/> value:需要查找的元素； | number |
+| subArray |截取数组| arr: Array\<any>, start: number, end?: number | arr：需要截取的数组；<br/>start：需要截取的开始下标<br/>end：需要截取的结束下标 | Array\<any> |
+| isEmpty |判断数组是否为空| arr: Array\<any> \| null | arr：需要判断的数组 | boolean |
 
 ### MathUtils
 

@@ -7,7 +7,7 @@ export default class ArrayUtils {
      * @param arr
      */
     sum(arr: Array<string> | Array<number> | Array<number | string>): number {
-        if (arr.length===0)
+        if (arr.length === 0)
             return 0;
         let result: number = 0;
         for (let i = 0; i < arr.length; i++) {
@@ -50,6 +50,45 @@ export default class ArrayUtils {
             }
         }
         return maximum;
+    }
+
+    /**
+     * 判断数组中是否含有某个元素
+     * @param arr
+     * @param value
+     */
+    contains(arr: Array<any>, value: any): number {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === value) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 截取数组
+     * @param arr
+     * @param start
+     * @param end
+     */
+    subArray(arr: Array<any>, start: number, end?: number): Array<any> {
+        end = end ? end : arr.length - 1;
+        if (end > arr.length - 1 || start < 0) {
+            throw Error("Array subscript out of bounds");
+        }
+        const arr1: Array<any> = [];
+        for (let i = start; i <= end; i++) {
+            arr1.push(arr[i]);
+        }
+        return arr1;
+    }
+
+    isEmpty(arr: Array<any> | null): boolean {
+        if (!arr) {
+            return true;
+        }
+        return arr.length === 0;
     }
 
 
