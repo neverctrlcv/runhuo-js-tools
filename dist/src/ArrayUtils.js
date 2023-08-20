@@ -26,6 +26,14 @@ var ArrayUtils = /** @class */ (function () {
         return result;
     };
     /**
+     * 求平均值
+     * @param arr
+     */
+    ArrayUtils.prototype.average = function (arr) {
+        var sum = this.sum(arr);
+        return sum / arr.length;
+    };
+    /**
      * 获取数组中的最值
      * 当数组的长度为0时，直接返回null
      * 当数组的长度为1时，直接返回下标为0的数据
@@ -87,6 +95,17 @@ var ArrayUtils = /** @class */ (function () {
             return true;
         }
         return arr.length === 0;
+    };
+    /**
+     * 浅度克隆
+     * @param arr
+     */
+    ArrayUtils.prototype.clone = function (arr) {
+        var res = [];
+        arr.forEach(function (item) {
+            res.push(item);
+        });
+        return res;
     };
     return ArrayUtils;
 }());

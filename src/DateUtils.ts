@@ -1,4 +1,12 @@
 export default class DateUtils {
+    /**
+     * 下面分别是一天、一小时、一分钟的秒数，数值都是计算过的，直接用即可；
+     * 目的是减少相关秒数的计算，提高代码的执行效率
+     */
+    readonly secondsOfDays = 86400000;//一天的秒数
+    readonly secondsOfHours = 3600000;//一小时的秒数
+    readonly secondsOfMinutes = 60000;//一分钟的秒数
+
     constructor() {
     }
 
@@ -55,14 +63,54 @@ export default class DateUtils {
      */
     dateDiff(start: Date, end: Date): Array<number> {
         let diff = Math.abs(start.getTime() - end.getTime());
-        const dayGap = Math.floor(diff / (1000 * 60 * 60 * 24));
-        diff = diff % (1000 * 60 * 60 * 24);
-        const hourGap = Math.floor(diff / (1000 * 60 * 60));
-        diff = diff % (1000 * 60 * 60);
-        const minutes = Math.floor(diff / (1000 * 60));
-        diff = diff % (1000 * 60);
+        const dayGap = Math.floor(diff / this.secondsOfDays);
+        diff = diff % this.secondsOfDays;
+        const hourGap = Math.floor(diff / this.secondsOfHours);
+        diff = diff % this.secondsOfHours;
+        const minutes = Math.floor(diff / this.secondsOfMinutes);
+        diff = diff % this.secondsOfMinutes;
         const seconds = Math.floor(diff / 1000);
         return [dayGap, hourGap, minutes, seconds, diff % 1000];
     }
+
+    /**
+     * 获取某一年的第一天
+     */
+    getFirstDayOfYear(time: Date | number): string {
+        const date = typeof time === "number" ? new Date(time) : time;
+        return date.getFullYear() + "-01-01 00:00:00";
+    }
+
+    /**
+     * 获取某个日期是当年的第几天
+     * @param time
+     */
+    getDayOfYear(time: Date | number): number {
+        const firstDay = this.getFirstDayOfYear(time);
+        const date = typeof time === "number" ? new Date(time) : time;
+        let numSecond = date.getTime() - new Date(firstDay).getTime();
+        return Math.ceil(numSecond / this.secondsOfDays)
+    }
+
+    /**
+     * 获取某个日期是这一年中第几周
+     * @param time
+     */
+    getDayOfYearWeek(time: Date | number): number {
+        const numDays = this.getDayOfYear(time);
+        return Math.ceil(numDays / 7);
+    }
+
+    getYearOfDay(year: string | number): number {
+        const current = typeof year === "number" ? year : Number(year);
+        if (isNaN(current)) {
+            throw Error(`String "${current}" cannot be converted to a number`)
+        }
+        const currentYear = `${current}-01-01 00:00:00`;
+        const nextYear = `${current + 1}-01-01 00:00:00`;
+        const second = new Date(nextYear).getTime() - new Date(currentYear).getTime();
+        return second / this.secondsOfDays;
+    }
+
 }
 

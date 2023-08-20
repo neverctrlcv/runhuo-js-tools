@@ -26,6 +26,16 @@ export default class ArrayUtils {
     }
 
     /**
+     * 求平均值
+     * @param arr
+     */
+    average(arr: Array<string> | Array<number> | Array<number | string>): number {
+        const sum = this.sum(arr);
+        return sum / arr.length;
+
+    }
+
+    /**
      * 获取数组中的最值
      * 当数组的长度为0时，直接返回null
      * 当数组的长度为1时，直接返回下标为0的数据
@@ -91,5 +101,32 @@ export default class ArrayUtils {
         return arr.length === 0;
     }
 
+    /**
+     * 浅度克隆
+     * @param arr
+     */
+    clone(arr: Array<any>): Array<any> {
+        const res: Array<any> = [];
+        arr.forEach(item => {
+            res.push(item);
+        })
+        return res;
+    }
+
+    //
+    // /**
+    //  * 深度克隆
+    //  * @param arr
+    //  */
+    // deepClone(arg: any): Array<any> | null {
+    //     let res: any;
+    //     if (arg instanceof Array) {
+    //         res = [];
+    //     } else if (arg instanceof Object) {
+    //         res = {};
+    //     }
+    //
+    //     return null;
+    // }
 
 }

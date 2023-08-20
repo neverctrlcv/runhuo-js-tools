@@ -9,6 +9,9 @@
 |:----------|-|-------------------------------|------|-----|
 | dateFormat| 日期格式化处理 | format:string , date:Date \| number | format：需要将时间转换的格式，取值范围有（a表示12小时制，C表示中文）： **HH-MM-DD HH:mm:ss**、**HH-MM-DD HH:mm:ss C**、 **HH-MM-DD**、**HH-MM-DD C**、**HH:mm:ss**、**HH:mm:ss C**、**HH-MM-DD a HH:mm:ss**、 **HH-MM-DD a HH:mm:ss C**、**a HH:mm:ss** **a HH:mm:ss C**；<br/>date：需要转换的日期或时间戳； |string|
 | dateDiff | 计算两个日期之间相差的天数 | start: Date, end: Date | start：开始的日期<br/>end：结束的日期 |Array\<number>|
+| getFirstDayOfYear | 获取某年的第一天 | time: Date \| number | time：某一天的时间或时间戳 |string|
+| getDayOfYear | 获取某个日期是当年第几天 | time: Date \| number | time：某一天的时间或时间戳 |number|
+| getDayOfYearWeek | 获取某个日期是这一年中第几周 | time: Date \| number | time：某一天的时间或时间戳 |number|
 
 
 ### StringUtils
@@ -40,6 +43,7 @@
 | contains |判断数组是否含有某个元素；**注：查找到返回下标，否则返回-1**| arr: Array\<any>, value: any | arr: 需要遍历的数组;<br/> value:需要查找的元素； | number |
 | subArray |截取数组| arr: Array\<any>, start: number, end?: number | arr：需要截取的数组；<br/>start：需要截取的开始下标<br/>end：需要截取的结束下标 | Array\<any> |
 | isEmpty |判断数组是否为空| arr: Array\<any> \| null | arr：需要判断的数组 | boolean |
+| average |求数组的平均值| arr: Array\<string> \| Array\<number> \| Array<number \| string> | arr：需要求平均值的数组 | number |
 
 ### MathUtils
 
