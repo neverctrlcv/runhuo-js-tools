@@ -22,4 +22,4 @@ const dateUtils = new DateUtils();
 //     console.log(dateUtils.dateDiff(a,b));
 // },3850);
 
-console.log(dateUtils.getYearOfDay("2023"));
+console.log(dateUtils.getMonthOfDay(2023,8));

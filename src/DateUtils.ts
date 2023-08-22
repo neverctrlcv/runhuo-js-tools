@@ -3,21 +3,23 @@ export default class DateUtils {
      * 下面分别是一天、一小时、一分钟的秒数，数值都是计算过的，直接用即可；
      * 目的是减少相关秒数的计算，提高代码的执行效率
      */
-    readonly secondsOfDays = 86400000;//一天的秒数
-    readonly secondsOfHours = 3600000;//一小时的秒数
-    readonly secondsOfMinutes = 60000;//一分钟的秒数
+    public readonly secondsOfDays = 86400000;//一天的秒数
+    public readonly secondsOfHours = 3600000;//一小时的秒数
+    public readonly secondsOfMinutes = 60000;//一分钟的秒数
+
 
     constructor() {
     }
 
+
     dateFormat(format: string, date: Date | number): string {
         let targetDate = typeof date === "number" ? new Date(date) : date;
         const year = targetDate.getFullYear();
-        const month = targetDate.getMonth() + 1;
-        const day = targetDate.getDate();
-        const hours = targetDate.getHours();
-        const minutes = targetDate.getMinutes();
-        const seconds = targetDate.getSeconds();
+        const month = this.timeFormat(targetDate.getMonth() + 1);
+        const day = this.timeFormat(targetDate.getDate());
+        const hours = this.timeFormat(targetDate.getHours());
+        const minutes = this.timeFormat(targetDate.getMinutes());
+        const seconds = this.timeFormat(targetDate.getSeconds());
         let result: string;
         switch (format) {
             case "HH-MM-DD HH:mm:ss":
@@ -39,21 +41,25 @@ export default class DateUtils {
                 result = `${hours}时${minutes}分${seconds}秒`;
                 break;
             case "HH-MM-DD a HH:mm:ss":
-                result = `${year}-${month}-${day} ${hours - 12 > 0 ? 'pm' : 'am'} ${hours - 12}:${minutes}:${seconds}`;
+                result = `${year}-${month}-${day} ${Number(hours) - 12 > 0 ? 'pm' : 'am'} ${Number(hours) - 12}:${minutes}:${seconds}`;
                 break;
             case "HH-MM-DD a HH:mm:ss C":
-                result = `${year}年${month}月${day}日 ${hours - 12 > 0 ? '下午' : '上午'} ${hours - 12}时${minutes}分${seconds}秒`;
+                result = `${year}年${month}月${day}日 ${Number(hours) - 12 > 0 ? '下午' : '上午'} ${Number(hours) - 12}时${minutes}分${seconds}秒`;
                 break;
             case "a HH:mm:ss":
-                result = `${hours - 12 > 0 ? 'pm' : 'am'} ${hours - 12}:${minutes}:${seconds}`;
+                result = `${Number(hours) - 12 > 0 ? 'pm' : 'am'} ${this.timeFormat(Number(hours) - 12)}:${minutes}:${seconds}`;
                 break;
             case "a HH:mm:ss C":
-                result = `${hours - 12 > 0 ? '下午' : '上午'} ${hours - 12}时${minutes}分${seconds}秒`;
+                result = `${Number(hours) - 12 > 0 ? '下午' : '上午'} ${Number(hours) - 12}时${minutes}分${seconds}秒`;
                 break;
             default:
                 throw new Error("The date format you set has an error. Please check it");
         }
         return result;
+    }
+
+    private timeFormat(time: number): string {
+        return time < 10 ? '0' + time : time + "";
     }
 
     /**
@@ -81,6 +87,13 @@ export default class DateUtils {
         return date.getFullYear() + "-01-01 00:00:00";
     }
 
+    getLastDayOfYear(time: Date | number): string {
+        const date = typeof time === "number" ? new Date(time) : time;
+        const nextYear = date.getFullYear() + 1;
+        const secondsOfNextYear = new Date(`${nextYear}-01-01 00:00:00`).getTime();
+        return this.dateFormat("HH-MM-DD HH:mm:ss", secondsOfNextYear - this.secondsOfDays);
+    }
+
     /**
      * 获取某个日期是当年的第几天
      * @param time
@@ -101,15 +114,37 @@ export default class DateUtils {
         return Math.ceil(numDays / 7);
     }
 
+    /**
+     * 获取某一年的天数
+     * @param year
+     */
     getYearOfDay(year: string | number): number {
         const current = typeof year === "number" ? year : Number(year);
         if (isNaN(current)) {
-            throw Error(`String "${current}" cannot be converted to a number`)
+            throw Error(`String "${current}" cannot be converted to a number`);
         }
         const currentYear = `${current}-01-01 00:00:00`;
         const nextYear = `${current + 1}-01-01 00:00:00`;
         const second = new Date(nextYear).getTime() - new Date(currentYear).getTime();
         return second / this.secondsOfDays;
+    }
+
+    /**
+     * 获取某个月有多少天
+     */
+    getMonthOfDay(year: string | number, month: string | number): number {
+        const year1 = typeof year === "string" ? Number(year) : year;
+        const month1 = typeof month === "string" ? Number(month) : month;
+        let nextMonth: number;
+        let nextYear: number;
+        if (isNaN(year1) || isNaN(month1)) {
+            throw Error(`String "${year}" or "${month}" cannot be converted to a number`);
+        }
+        nextMonth = month1 === 12 ? 1 : month1 + 1;
+        nextYear = month1 === 12 ? year1 + 1 : year1;
+        const firstDayOfMonth = new Date(`${year1}-${month1}-01 00:00:00`).getTime();
+        const firstDayOfNextMonth = new Date(`${nextYear}-${nextMonth}-01 00:00:00`).getTime();
+        return (firstDayOfNextMonth - firstDayOfMonth) / this.secondsOfDays;
     }
 
 }

@@ -4,7 +4,8 @@
 
 ## API介绍
 
-### DateUtils
+### DateUtils（已测试）
+
 | API        |方法说明| 参数及类型                       | 参数说明   | 返回类型 |
 |:----------|-|-------------------------------|------|-----|
 | dateFormat| 日期格式化处理 | format:string , date:Date \| number | format：需要将时间转换的格式，取值范围有（a表示12小时制，C表示中文）： **HH-MM-DD HH:mm:ss**、**HH-MM-DD HH:mm:ss C**、 **HH-MM-DD**、**HH-MM-DD C**、**HH:mm:ss**、**HH:mm:ss C**、**HH-MM-DD a HH:mm:ss**、 **HH-MM-DD a HH:mm:ss C**、**a HH:mm:ss** **a HH:mm:ss C**；<br/>date：需要转换的日期或时间戳； |string|
@@ -12,6 +13,8 @@
 | getFirstDayOfYear | 获取某年的第一天 | time: Date \| number | time：某一天的时间或时间戳 |string|
 | getDayOfYear | 获取某个日期是当年第几天 | time: Date \| number | time：某一天的时间或时间戳 |number|
 | getDayOfYearWeek | 获取某个日期是这一年中第几周 | time: Date \| number | time：某一天的时间或时间戳 |number|
+| getYearOfDay | 获取某一年的天数 | year: string \| number | year：目的年份 |number|
+| getMonthOfDay | 获取某个月有多少天 | year: string \| number, month: string \| number | year：目标年份<br/>month：目标月份 |number|
 
 
 ### StringUtils
