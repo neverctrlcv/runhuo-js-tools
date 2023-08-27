@@ -19,3 +19,6 @@ const stringUtils=new StringUtils();
 // console.log(stringUtils.capitalize("abns"));
 // console.log(stringUtils.capitalize("1abns"));
 // console.log(stringUtils.capitalize("Abns"));
+
+console.log(stringUtils.uncapitalize("ab1c"))
+console.log(stringUtils.uncapitalize("Ab1c"))

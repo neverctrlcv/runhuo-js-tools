@@ -7,7 +7,6 @@ export default class DateUtils {
     public readonly secondsOfHours = 3600000;//一小时的秒数
     public readonly secondsOfMinutes = 60000;//一分钟的秒数
 
-
     constructor() {
     }
 

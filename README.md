@@ -17,27 +17,27 @@
 | getMonthOfDay | 获取某个月有多少天 | year: string \| number, month: string \| number | year：目标年份<br/>month：目标月份 |number|
 
 
-### StringUtils
+### StringUtils（已测试）
 | API  |方法说明| 参数及类型 | 参数说明 | 返回类型     |
 | ---- |-| ---------- | ---------------- | ---- |
 | replace| 替换字符串中某些字符串 | str: string, rep1: Array\<string>, rep2: Array\<string> | str：需要操作的字符串；<br/>rep1：字符串中被代替的内容；<br/>rep2：用来代替的内容；<br/>注：当数组rep2的长度小于等于1时，将用该字符串代替rep1中的内容，否则rep1的长度必须与rep2的长度一一对应，即一一替换； | string |
 | toUpperCase| 将字符串字母全部转成大写 | args: string | args：需要操作的字符串； | string |
 | toLowerCase |将字符串字母全部转成小写| args: string | args：需要操作的字符串； | string |
 | trim| 去除字符串的空格 | str: string , type: number | str：需要操作的字符串；<br/>type：操作的方式，取值范围为1、2、3、4；<br/>**1**：表示去除字符串开头和结尾空格；<br/>**2**：去除字符串开头的空格；<br/>**3**：去除字符串结尾的空格；<br/>**4**：去除字符串中所有的空格； | string |
-| equals | 判断两个字符串是否相等 | str1: string, str2: string | str1: 字符串1；<br/> str2: 字符串2 | boolean |
+| equals | 判断两个字符串是否相等（只比较内容） | str1: string, str2: string | str1: 字符串1；<br/> str2: 字符串2 | boolean |
 | isBlank | 判断字符串是否为空（trim后判断） | str: string\|null | str：需要判断的字符串 | boolean |
 | isEmpty | 判断字符串是否为空（不trim后判断） | str: string\|null | str：需要判断的字符串 | boolean |
 | capitalize | 字符串首字母大写 | str: string | str：需要操作的字符串 | string |
 | uncapitalize | 字符串首字母小写 | str: string | str：需要操作的字符串 | string |
 
-### UrlUtils
+### UrlUtils（已测试）
 
 | API         | 方法说明 | 参数及类型  | 参数说明                 | 返回类型 |
 | ------------ |---| ----------- | ------------------------ | -------- |
 | getUrlParams |解析url参数| url: string | url：需要解析参数的url； | Object   |
 | getPort |获取url中的端口号| url: string | url：需要解析端口号的url； | string |
 
-### ArrayUtils
+### ArrayUtils（已测试）
 
 | API       | 方法说明 | 参数及类型                                      | 参数说明                                                     | 返回类型         |
 | ----------|-- | ----------------------------------------------- | ------------------------------------------------------------ | ---------------- |
@@ -48,7 +48,7 @@
 | isEmpty |判断数组是否为空| arr: Array\<any> \| null | arr：需要判断的数组 | boolean |
 | average |求数组的平均值| arr: Array\<string> \| Array\<number> \| Array<number \| string> | arr：需要求平均值的数组 | number |
 
-### MathUtils
+### MathUtils（已测试）
 
 | API             | 方法说明               | 参数及类型                      | 参数说明                       | 返回类型 |
 | --------------- | ---------------------- | ------------------------------- | ------------------------------ | -------- |
@@ -57,4 +57,22 @@
 | triangleArea    | 已知三角形三条边求面积 | a: number, b: number, c: number | a，b，c为三角形的三条边        | number   |
 | gcd             | 求最大公约数           | a: number, b: number            | a，b为参数，求两者的最大公约数 | number   |
 | lcm             | 求最小公倍数           | a: number, b: number            | a，b为参数，求两者的最小公倍数 | number   |
+
+### JsonUtils
+
+| API  | 方法说明 | 参数及类型 | 参数说明 | 返回类型 |
+| ---- | -------- | ---------- | -------- | -------- |
+|      |          |            |          |          |
+
+### NumberUtils
+
+| API  | 方法说明 | 参数及类型 | 参数说明 | 返回类型 |
+| ---- | -------- | ---------- | -------- | -------- |
+|      |          |            |          |          |
+
+### ObjectUtils
+
+| API  | 方法说明 | 参数及类型 | 参数说明 | 返回类型 |
+| ---- | -------- | ---------- | -------- | -------- |
+|      |          |            |          |          |
 
